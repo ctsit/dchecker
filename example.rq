@@ -1,0 +1,6 @@
+# Example SPARQL Query that returns the number of People.
+
+SELECT COUNT(?s)
+WHERE {
+    ?s a foaf:Person
+}
