@@ -1,7 +1,7 @@
 ###############################################################################
-# Copyright 2015-2019 University of Florida. All rights reserved.
-# This file is part of UF CTS-IT"s NACCulator project.
-# Use of this source code is governed by the license found in the LICENSE file.
+# Copyright 2013-2019 University of Florida. All rights reserved.
+# This file is part of the DChecker project.
+# Use of this source code is governed by the license found in LICENSE.txt.
 ###############################################################################
 
 from setuptools import setup
@@ -11,6 +11,7 @@ from dchecker import VERSION
 setup(
     name="dchecker",
     version=VERSION,
+    py_modules=["dchecker"],
     description="Data integrity checker for VIVO",
     long_description=open("README.md").read(),
 
@@ -25,15 +26,12 @@ setup(
     keywords=["VIVO", "data integrity", "SPARQL"],
     license="MIT",
 
-    package_data={
-        "": ["dchecker.py"]
-    },
-
     entry_points={
         "console_scripts": [
             "dchecker = dchecker:main"
         ]
     },
 
-    python_requires=">=3.6.0"
+    python_requires=">=3.6.0",
+    zip_safe=False,
 )
