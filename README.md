@@ -20,21 +20,10 @@ Quickstart
 Configuration
 -------------
 
+All configuration is done using command-line arguments. For more information,
+look at the usage in `dchecker.py` or run:
 
-You need to provide:
-
-+ A SPARQL endpoint URL
-
-To have an report emailed to you, you need to provide:
-
-+ Your outgoing mail server
-+ A `FROM` address to send the report from
-+ A `TO` address to receive the report
-
-You can also specify the following optional parameters:
-
-+ A path to the folder containing the queries
-+ A subject for the report
+    $ dchecker --help
 
 
 Adding new queries
