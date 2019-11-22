@@ -34,4 +34,6 @@ setup(
             "dchecker = dchecker:main"
         ]
     },
+
+    python_requires=">=3.6.0"
 )
