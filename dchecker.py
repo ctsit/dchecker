@@ -1,5 +1,6 @@
-"""
-Copyright 2015-2019 University of Florida
+""" Data integrity checker for VIVO
+
+Copyright 2013-2019 University of Florida.
 
 USAGE: dchecker -h|--help
        dchecker --version
@@ -10,8 +11,8 @@ USAGE: dchecker -h|--help
 DChecker is an open-source (MIT License) tool for running data integrity
 queries for VIVO.
 
-It scans a directory for SPARQL query files, runs each one sequentially, then
-emails a report.
+DChecker scans a directory for SPARQL query files, runs each one sequentially,
+then emails a report.
 
 The first form will simply print this usage.
 
@@ -28,7 +29,7 @@ The finally forms will run the queries and email a report.
 
   smtp       Outgoing mail server
   from       Email address of the sender
-  to         Email addressess of recipients separated by commas.
+  to         Email addresses of recipients separated by commas.
   subject    Subject for the report. Use "%c" for current date and time.
              Defaults to "VIVO Data Quality report for %c".
 
@@ -85,6 +86,7 @@ def log(file: str, msg: str):
 
 
 def main():
+    """Program entry."""
     argc = len(sys.argv)
 
     if argc <= 1:
@@ -97,7 +99,7 @@ def main():
         print(VERSION)
         sys.exit(0)
 
-    # Set some defaults then override them using any command-line arugments.
+    # Set some defaults then override them using any command-line arguments.
     endpoint = sys.argv[1]
     queries = "."
     smtp = ""
@@ -144,8 +146,9 @@ def main():
     print("Done.", file=sys.stderr)
 
 
-def pretty_name(file: str) -> str:
-    return os.path.basename(file).replace("_", " ").replace(".rq", "")
+def pretty_name(filename: str) -> str:
+    """Returns a version of `filename` that is easier for a human to read."""
+    return os.path.basename(filename).replace("_", " ").replace(".rq", "")
 
 
 def query(endpoint: str, query: str, prefixes: str = DEFAULT_PREFIXES) -> dict:
@@ -175,7 +178,7 @@ def run(endpoint: str, queries: str) -> str:
     results: typing.Dict[str, dict] = {}
     errors: typing.Dict[str, str] = {}
 
-    files = list(glob.iglob(os.path.join(queries, '*.rq')))
+    files = list(glob.iglob(os.path.join(queries, "*.rq")))
     print(f"Files found: {len(files)}", file=sys.stderr)
     for file in files:
         print(f"- {file}", file=sys.stderr)
@@ -251,6 +254,7 @@ def two_columns(first: str, second: str) -> str:
 
 
 def usage(status: int):
+    """Prints the usage text and exits."""
     print(__doc__.strip())
     print(DEFAULT_PREFIXES)
     sys.exit(status)
