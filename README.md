@@ -29,14 +29,21 @@ look at the usage in `dchecker.py` or run:
 Adding new queries
 ------------------
 
-Queries are run sequentially out of the `queries` folder. To add a new SPARQL
-query, save it with the `.rq` file extension, and it will be run automatically
-when DChecker runs.
+Queries are run sequentially from a specified folder (or the current folder
+if unspecified).
+
+To add a new SPARQL query, save it in the same folder as your other queries with
+the `.rq` extension, and it will be included automatically when DChecker runs.
 
 
 Contributing
 ------------
 
-We welcome contributions! Please be aware, however, that we can only accept your
-code contributions (or other sources) if you affirm that the work is your own
-and that you are assigning copyright to the *University of Florida*.
+We welcome contributions.
+
+Please be aware that by submitting pull requests, or contributing your code in
+some other way, you affirm that the work is your own and that you are assigning
+copyright to the University of Florida.
+
+Furthermore, explain how you tested your changes and be sure to match the
+existing style.

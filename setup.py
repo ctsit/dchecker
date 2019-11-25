@@ -12,6 +12,7 @@ setup(
     name="dchecker",
     version=VERSION,
     py_modules=["dchecker"],
+
     description="Data integrity checker for VIVO",
     long_description=open("README.md").read(),
 
@@ -33,5 +34,4 @@ setup(
     },
 
     python_requires=">=3.6.0",
-    zip_safe=False,
 )
