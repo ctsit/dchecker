@@ -1,6 +1,6 @@
 """ Data integrity checker for VIVO
 
-Copyright 2013-2019 University of Florida.
+Copyright 2019 University of Florida.
 
 USAGE: dchecker -h|--help
        dchecker --version
@@ -74,7 +74,7 @@ DEFAULT_PREFIXES = """
     PREFIX core:    <http://vivoweb.org/ontology/core#>
 """
 
-VERSION = "2.0.0-rc1"
+VERSION = "2.0.0"
 
 XSD_INTEGER = "http://www.w3.org/2001/XMLSchema#integer"
 

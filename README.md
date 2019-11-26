@@ -7,14 +7,14 @@ DChecker
 It scans a directory for SPARQL query files, runs each one sequentially, then
 emails a report.
 
-Version 2 was a complete rewrite for Python 3.
-
 
 Quickstart
 ----------
 
     $ pip3 install git+https://github.com/ctsit/dchecker.git
     $ dchecker https://sparql.school.edu/ ./queries
+
+*Note:* a report is printed to STDOUT and log messages are printed to STDERR.
 
 
 Configuration
