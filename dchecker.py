@@ -115,22 +115,21 @@ def main():
     if argc >= 7:
         subject = ' '.join(sys.argv[6:])
 
-    now = datetime.datetime.now().replace(microsecond=0)
+    started = datetime.datetime.now().replace(microsecond=0)
 
     try:
         results = run(endpoint, queries)
-        now = datetime.datetime.now().replace(microsecond=0)
     except Exception:
         traceback.print_exc()
         results = "Error! Check the system logs."
 
     done = datetime.datetime.now().replace(microsecond=0)
 
-    subject = subject.replace("%c", now.isoformat(sep=" "), 1)
+    subject = subject.replace("%c", started.isoformat(sep=" "), 1)
     report = f"""
 {subject}
   Endpoint: {endpoint}
-  Started : {now.isoformat(sep=" ")}
+  Started : {started.isoformat(sep=" ")}
   Finished: {done.isoformat(sep=" ")}
   Runner  : dchecker v{VERSION}
 
