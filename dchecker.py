@@ -1,6 +1,6 @@
 """ Data integrity checker for VIVO
 
-Copyright 2013-2019 University of Florida.
+Copyright 2019 University of Florida.
 
 USAGE: dchecker -h|--help
        dchecker --version
@@ -74,7 +74,7 @@ DEFAULT_PREFIXES = """
     PREFIX core:    <http://vivoweb.org/ontology/core#>
 """
 
-VERSION = "2.0.0-rc1"
+VERSION = "2.0.0"
 
 XSD_INTEGER = "http://www.w3.org/2001/XMLSchema#integer"
 
@@ -115,22 +115,21 @@ def main():
     if argc >= 7:
         subject = ' '.join(sys.argv[6:])
 
-    now = datetime.datetime.now().replace(microsecond=0)
+    started = datetime.datetime.now().replace(microsecond=0)
 
     try:
         results = run(endpoint, queries)
-        now = datetime.datetime.now().replace(microsecond=0)
     except Exception:
         traceback.print_exc()
         results = "Error! Check the system logs."
 
     done = datetime.datetime.now().replace(microsecond=0)
 
-    subject = subject.replace("%c", now.isoformat(sep=" "), 1)
+    subject = subject.replace("%c", started.isoformat(sep=" "), 1)
     report = f"""
 {subject}
   Endpoint: {endpoint}
-  Started : {now.isoformat(sep=" ")}
+  Started : {started.isoformat(sep=" ")}
   Finished: {done.isoformat(sep=" ")}
   Runner  : dchecker v{VERSION}
 
@@ -178,7 +177,8 @@ def run(endpoint: str, queries: str) -> str:
     results: typing.Dict[str, dict] = {}
     errors: typing.Dict[str, str] = {}
 
-    files = list(glob.iglob(os.path.join(queries, "*.rq")))
+    files = glob.iglob(os.path.join(queries, "*.rq"))
+    files = sorted(files)
     print(f"Files found: {len(files)}", file=sys.stderr)
     for file in files:
         print(f"- {file}", file=sys.stderr)

@@ -1,5 +1,5 @@
 ###############################################################################
-# Copyright 2013-2019 University of Florida. All rights reserved.
+# Copyright 2019 University of Florida. All rights reserved.
 # This file is part of the DChecker project.
 # Use of this source code is governed by the license found in LICENSE.txt.
 ###############################################################################
