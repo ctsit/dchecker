@@ -177,7 +177,8 @@ def run(endpoint: str, queries: str) -> str:
     results: typing.Dict[str, dict] = {}
     errors: typing.Dict[str, str] = {}
 
-    files = list(glob.iglob(os.path.join(queries, "*.rq")))
+    files = glob.iglob(os.path.join(queries, "*.rq"))
+    files = sorted(files)
     print(f"Files found: {len(files)}", file=sys.stderr)
     for file in files:
         print(f"- {file}", file=sys.stderr)
