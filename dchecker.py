@@ -214,9 +214,8 @@ def run(endpoint: str, queries: str) -> str:
         col = next(iter(values[0].keys()))
 
         # If the query returned a single number, like from COUNT(), use it.
-        if count == 1:
-            if values[0][col]["datatype"] == XSD_INTEGER:
-                value = values[0][col]["value"]
+        if count == 1 and values[0][col].get("datatype", "") == XSD_INTEGER:
+            value = values[0][col]["value"]
             report += two_columns(value, pretty_name(file))
             continue
 
