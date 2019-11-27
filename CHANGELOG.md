@@ -1,6 +1,14 @@
 CHANGELOG
 =========
 
+2019-11-27 v2.0.1
+-----------------
+
+Bug fix.
+
+* Support queries that return only one untyped value (Taeber Rapczak)
+
+
 2019-11-26 v2.0.0
 -----------------
 
