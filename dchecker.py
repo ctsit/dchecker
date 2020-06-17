@@ -43,6 +43,7 @@ import glob
 import os
 import os.path
 import smtplib
+import ssl
 import sys
 import traceback
 import typing
@@ -159,9 +160,21 @@ def query(endpoint: str, query: str, prefixes: str = DEFAULT_PREFIXES) -> dict:
     }
     encoded = urllib.parse.urlencode(params).encode("UTF-8")
 
-    request = urllib.request.Request(endpoint, data=encoded, method="POST")
+    headers={
+        "Accept": "application/sparql-results+json"
+    }
+    request = urllib.request.Request(
+            endpoint,
+            data=encoded,
+            method="POST",
+            headers=headers
+    )
 
-    with urllib.request.urlopen(request) as response:
+    ctx = ssl.create_default_context()
+    ctx.check_hostname = False
+    ctx.verify_mode = ssl.CERT_NONE
+
+    with urllib.request.urlopen(request, context=ctx) as response:
         body = response.read()
         resp = json.loads(body)
         return resp
