@@ -12,7 +12,7 @@ Quickstart
 ----------
 
     $ pip3 install git+https://github.com/ctsit/dchecker.git
-    $ dchecker https://sparql.school.edu/ ./queries
+    $ dchecker http://sparql.school.edu/ ./queries
 
 *Note:* a report is printed to STDOUT and log messages are printed to STDERR.
 
