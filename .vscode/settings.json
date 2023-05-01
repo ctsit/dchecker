@@ -1,0 +1,49 @@
+{
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.autopep8"
+    },
+    "python.analysis.typeCheckingMode": "basic",
+    // formatting
+    // "editor.formatOnSave": true,
+    "python.formatting.provider": "none",
+    "python.formatting.autopep8Args": [
+        "--max-line-length",
+        "100",
+        "--experimental"
+    ],
+    // linting
+    // PEP8 is a written standard. Flake8 is a tool that inspects code for errors, including failing to comply with PEP8 standards.
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Args": [
+        // E501 - Line length
+        // W605 - Invalid escape sequence
+        // "--ignore=E501, W605",
+        "--max-line-length=100"
+    ],
+
+    // "python.linting.mypyEnabled":true,
+    // "python.linting.mypyCategorySeverity.note":"Warning",
+    // "python.linting.mypyArgs": [
+    //     "--ignore-missing-imports",
+    //     "--follow-imports=silent",
+    //     "--show-column-numbers",
+    //     "--disallow-untyped-defs=True",
+    //     "--disallow-untyped-calls=True",
+    //     "--check-untyped-defs=True",
+    //     "--no-implicit-optional=True",
+    // ],
+    // testing
+    "python.testing.unittestArgs": [
+        "-v",
+        "./tests",
+        "-p",
+        "*test*.py"
+    ],
+    "python.testing.pytestEnabled": false,
+    "python.testing.unittestEnabled": true,
+    "python.testing.pytestArgs": [
+        "tests"
+    ],
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+}
