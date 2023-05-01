@@ -1,6 +1,18 @@
 CHANGELOG
 =========
 
+## v2.1.0 - 2023-05-01
+## Added
+ * Add launch.json (Michael Bentz)
+ * Add dev improvements (Michael Bentz)
+ * Add gitignore (Michael Bentz)
+
+## Changed
+ * Use toml instead of setup.py (Michael Bentz)
+
+## Fixed
+ * Close Update sample endpoint in README #1. (Michael Bentz)
+
 2019-11-27 v2.0.1
 -----------------
 
