@@ -156,6 +156,8 @@ def query(endpoint: str, query: str, prefixes: str = DEFAULT_PREFIXES) -> dict:
     params = {
         "query": prefixes+query,
         "format": "json",
+        "email": os.getenv("EMAIL"),
+        "password": os.getenv("PASSWORD")
     }
     encoded = urllib.parse.urlencode(params).encode("UTF-8")
 
