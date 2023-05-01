@@ -1,0 +1,19 @@
+
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Create python venv",
+            "type": "shell",
+            "command": "python3 -m venv .venv",
+            "group": "none",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "runOptions": {
+                "runOn": "folderOpen",
+            }
+        }
+    ]
+}
