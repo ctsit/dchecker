@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+## v2.1.1 - 2023-05-03
+## Added
+ * Load environment variables on run (Michael Bentz)
+
 ## v2.1.0 - 2023-05-01
 ## Added
  * Add launch.json (Michael Bentz)
