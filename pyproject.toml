@@ -1,13 +1,13 @@
 [project]
 name = "dchecker"
-version = "2.1.2"
+version = "2.2.0"
 authors = [
   { name="Michael Bentz", email="mbentz@ufl.edu" },
 ]
 
 description = "Data integrity checker for VIVO"
 readme = "README.md"
-requires-python = ">=3.6.0"
+requires-python = ">=3.10.0"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",

@@ -75,9 +75,16 @@ DEFAULT_PREFIXES = """
     PREFIX core:    <http://vivoweb.org/ontology/core#>
 """
 
-VERSION = "2.1.2"
+VERSION = "2.2.0"
 
 XSD_INTEGER = "http://www.w3.org/2001/XMLSchema#integer"
+
+
+def is_safe_request(endpoint: str, email: str | None, password: str | None):
+    if "http:" in endpoint:
+        if (email != "" and email is not None) or (password != "" and password is not None):
+            return False
+    return True
 
 
 def log(file: str, msg: str):
@@ -117,6 +124,13 @@ def main():
         subject = ' '.join(sys.argv[6:])
 
     load_dotenv()
+    if not is_safe_request(endpoint, os.getenv("EMAIL"), os.getenv("PASSWORD")):
+        print(
+            "Passing credentials is not supported for http."
+            "Either remove EMAIL and PASSWORD from .env or use https."
+        )
+        exit()
+
     started = datetime.datetime.now().replace(microsecond=0)
 
     try:
@@ -206,7 +220,7 @@ def run(endpoint: str, queries: str) -> str:
                 response = query(endpoint, sparql)
                 values = response["results"]["bindings"]
                 results[file] = values
-                log(file, len(values))
+                log(file, str(len(values)))
                 log(file, "done")
             except Exception as ex:
                 traceback.print_exc()
