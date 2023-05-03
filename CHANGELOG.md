@@ -1,6 +1,19 @@
 CHANGELOG
 =========
 
+## v2.2.0 - 2023-05-03
+## Added
+ * Add unit test workflow (Michael Bentz)
+ * Add is_safe_request function (Michael Bentz)
+ * Add __pycache__ to gitignore (Michael Bentz)
+
+## Changed
+ * Bump python version to 3.10.0 to support `|` (Michael Bentz)
+ * Bump python to supported version (Michael Bentz)
+
+## Fixed
+ * Fix tests to support `None` (Michael Bentz)
+
 ## v2.1.2 - 2023-05-03
 ## Added
  * Added `ENDPOINT_ALIAS` to override `Endpoint` in the generated report 
