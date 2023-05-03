@@ -8,13 +8,19 @@ class TestCredentials(unittest.TestCase):
         # https
         self.assertTrue(is_safe_request("https://example.com", "email@example.com", "password"))
         self.assertTrue(is_safe_request("https://example.com", "email@example.com", ""))
+        self.assertTrue(is_safe_request("https://example.com", "email@example.com", None))
         self.assertTrue(is_safe_request("https://example.com", "", "password"))
+        self.assertTrue(is_safe_request("https://example.com", None, "password"))
         self.assertTrue(is_safe_request("https://example.com", "", ""))
+        self.assertTrue(is_safe_request("https://example.com", None, None))
         # http
         self.assertTrue(is_safe_request("http://example.com", "", ""))
+        self.assertTrue(is_safe_request("http://example.com", None, None))
         self.assertFalse(is_safe_request("http://example.com", "email@example.com", "password"))
         self.assertFalse(is_safe_request("http://example.com", "", "password"))
+        self.assertFalse(is_safe_request("http://example.com", None, "password"))
         self.assertFalse(is_safe_request("http://example.com", "email@example.com", ""))
+        self.assertFalse(is_safe_request("http://example.com", "email@example.com", None))
 
 
 if __name__ == '__main__':
