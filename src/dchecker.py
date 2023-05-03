@@ -37,6 +37,7 @@ Please be aware there are some default prefixes to simplify SPARQL queries.
 """
 
 from email.mime.text import MIMEText
+from dotenv import load_dotenv
 import datetime
 import json
 import glob
@@ -74,7 +75,7 @@ DEFAULT_PREFIXES = """
     PREFIX core:    <http://vivoweb.org/ontology/core#>
 """
 
-VERSION = "2.0.1"
+VERSION = "2.1.1"
 
 XSD_INTEGER = "http://www.w3.org/2001/XMLSchema#integer"
 
@@ -115,6 +116,7 @@ def main():
     if argc >= 7:
         subject = ' '.join(sys.argv[6:])
 
+    load_dotenv()
     started = datetime.datetime.now().replace(microsecond=0)
 
     try:
