@@ -75,7 +75,7 @@ DEFAULT_PREFIXES = """
     PREFIX core:    <http://vivoweb.org/ontology/core#>
 """
 
-VERSION = "2.1.1"
+VERSION = "2.1.2"
 
 XSD_INTEGER = "http://www.w3.org/2001/XMLSchema#integer"
 
@@ -128,9 +128,16 @@ def main():
     done = datetime.datetime.now().replace(microsecond=0)
 
     subject = subject.replace("%c", started.isoformat(sep=" "), 1)
+
+    target_endpoint = endpoint
+
+    endpoint_alias = os.getenv("ENDPOINT_ALIAS")
+    if endpoint_alias is not None or endpoint_alias:
+        target_endpoint = endpoint_alias
+
     report = f"""
 {subject}
-  Endpoint: {endpoint}
+  Endpoint: {target_endpoint}
   Started : {started.isoformat(sep=" ")}
   Finished: {done.isoformat(sep=" ")}
   Runner  : dchecker v{VERSION}
@@ -163,7 +170,11 @@ def query(endpoint: str, query: str, prefixes: str = DEFAULT_PREFIXES) -> dict:
     }
     encoded = urllib.parse.urlencode(params).encode("UTF-8")
 
-    request = urllib.request.Request(endpoint, data=encoded, method="POST")
+    headers = {
+        'Accept': 'application/sparql-results+json'
+    }
+
+    request = urllib.request.Request(endpoint, headers=headers, data=encoded, method="POST")
 
     with urllib.request.urlopen(request) as response:
         body = response.read()

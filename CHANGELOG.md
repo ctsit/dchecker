@@ -1,6 +1,13 @@
 CHANGELOG
 =========
 
+## v2.1.2 - 2023-05-03
+## Added
+ * Added `ENDPOINT_ALIAS` to override `Endpoint` in the generated report 
+
+## Fixed
+ * Pass proper header to receive json response
+
 ## v2.1.1 - 2023-05-03
 ## Added
  * Load environment variables on run (Michael Bentz)
