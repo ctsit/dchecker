@@ -1,0 +1,25 @@
+name: run unit tests
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [develop]
+  pull_request:
+    branches: [master, develop]
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-20.04
+    name: Run unit tests
+
+    steps:
+      - name: Check out source repository
+        uses: actions/checkout@v2
+      - name: Set up Python environment
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.6.0"
+      - name: Install dependencies and test with unittest
+        run: |
+          pip install --upgrade .
+          python -m unittest -v
