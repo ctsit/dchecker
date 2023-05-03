@@ -82,7 +82,7 @@ XSD_INTEGER = "http://www.w3.org/2001/XMLSchema#integer"
 
 def is_safe_request(endpoint: str, email: str | None, password: str | None):
     if "http:" in endpoint:
-        if email != "" or password != "":
+        if (email != "" and email is not None) or (password != "" and password is not None):
             return False
     return True
 
