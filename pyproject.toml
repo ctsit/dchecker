@@ -1,6 +1,6 @@
 [project]
 name = "dchecker"
-version = "2.2.0"
+version = "2.2.1"
 authors = [
   { name="Michael Bentz", email="mbentz@ufl.edu" },
 ]

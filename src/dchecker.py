@@ -75,7 +75,7 @@ DEFAULT_PREFIXES = """
     PREFIX core:    <http://vivoweb.org/ontology/core#>
 """
 
-VERSION = "2.2.0"
+VERSION = "2.2.1"
 
 XSD_INTEGER = "http://www.w3.org/2001/XMLSchema#integer"
 
