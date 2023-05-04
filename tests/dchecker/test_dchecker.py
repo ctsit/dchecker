@@ -13,6 +13,16 @@ class TestCredentials(unittest.TestCase):
         self.assertTrue(is_safe_request("https://example.com", None, "password"))
         self.assertTrue(is_safe_request("https://example.com", "", ""))
         self.assertTrue(is_safe_request("https://example.com", None, None))
+
+        # localhost
+        self.assertTrue(is_safe_request("http://localhost", "email@example.com", "password"))
+        self.assertTrue(is_safe_request("http://localhost", "email@example.com", ""))
+        self.assertTrue(is_safe_request("http://localhost", "email@example.com", None))
+        self.assertTrue(is_safe_request("http://localhost", "", "password"))
+        self.assertTrue(is_safe_request("http://localhost", None, "password"))
+        self.assertTrue(is_safe_request("http://localhost", "", ""))
+        self.assertTrue(is_safe_request("http://localhost", None, None))
+
         # http
         self.assertTrue(is_safe_request("http://example.com", "", ""))
         self.assertTrue(is_safe_request("http://example.com", None, None))
