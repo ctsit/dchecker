@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+## v2.2.1 - 2023-05-04
+## Fixed
+ * Fix bug that prevents sending credentials to localhost (Michael Bentz)
+
 ## v2.2.0 - 2023-05-03
 ## Added
  * Add unit test workflow (Michael Bentz)
