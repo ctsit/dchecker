@@ -10,11 +10,14 @@
             "request": "launch",
             "module": "dchecker",
             "args": [
-                "http://sparql.vivo.ufl.edu/",
-                "${workspaceFolder}/dchecker_queries/queries-security" // uncomment for security queries
-                // "${workspaceFolder}/dchecker_queries/queries-security" // uncomment for data quality queries
+                // provide runtime args here, words should be provided as separate strings
+                // For example:
+                "http://sparql.vivo.ufl.edu",
+                "./queries/queries",
+                // "./queries/queries-security"
+                // "http://sparql.vivo.ufl.edu/",
             ],
-            "justMyCode": false
+            "justMyCode": false // this allows setting breakpoints for the installed module in .venv
         },
         {
             "name": "Python: Current File",
